@@ -13,7 +13,7 @@ object CountWords {
 
     val sc = new SparkContext("local[*]", "CountWords")
 
-    val input = sc.textFile("/home/yavuz.demir/Downloads/SparkScala/book.txt")
+    val input = sc.textFile("book.txt")
 
 //    val words = input.flatMap(x => x.split(" "))
 
