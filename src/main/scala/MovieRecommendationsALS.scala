@@ -61,7 +61,7 @@ object MovieRecommendationsALS {
 
     val userRatings = ratings.filter(x => x.user == userID)
 
-    val myRatings = userRatings.collect()
+    val myRatings = userRatings
 
     for (rating <- myRatings) {
       println(nameDict(rating.product.toInt) + ": " + rating.rating.toString)
@@ -69,7 +69,9 @@ object MovieRecommendationsALS {
 
     println("\nTop 10 recommendations:")
 
-    val recommendations = model.recommendProducts(userID, 10)
+
+
+    val recommendations = model.recommendProducts(10, 10)
     for (recommendation <- recommendations) {
       println( nameDict(recommendation.product.toInt) + " score " + recommendation.rating )
     }
